@@ -1,0 +1,37 @@
+# Variables
+bill = float(input("Enter total bill amount:$ "))
+tip_percent = float(input("Enter the percent tip (10,15,20...): "))
+party_amt = float(input("Enter your party size: "))
+
+
+def total_pay_with_tip_per_person():
+    '''
+    Total pay of each party individual
+    '''
+    total = float(bill/party_amt) * (1+(tip_percent/100))
+    total = (round(total, 2))
+    print(f"Each person should pay: ${total}")
+    return total
+
+
+def party_tip_total():
+    '''
+    Total cost of party's tip
+    '''
+    percent = (tip_percent/100)
+    ind_tip_total = (bill * percent)/party_amt
+    total = ind_tip_total * party_amt
+    total = (round(total, 2))
+    print(f"Party tip total:${total}")
+    return total
+
+
+def total_bill(bill, total_party_tip):
+    total = bill + total_party_tip
+    total = (round(total, 2))
+    print(f"Total Bill:$ {total}")
+
+
+total_pay_with_tip_per_person()
+tip_total = party_tip_total()
+total_bill(bill, tip_total)
